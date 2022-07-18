@@ -6,6 +6,10 @@ SET(CMAKE_CXX_COMPILER "g++")
 PROJECT("json_encoder")
 
 INCLUDE_DIRECTORIES(include)
+INCLUDE_DIRECTORIES(external/yajl-2.1.1/include)
+INCLUDE_DIRECTORIES(external/yajl-2.1.1/include/yajl)
+
+LINK_DIRECTORIES(external/yajl-2.1.1/lib)
 
 ADD_SUBDIRECTORY(src)
 ADD_SUBDIRECTORY(test/sample)
