@@ -16,7 +16,7 @@ Sum(
     uint16_t x,
     uint16_t y)
 {
-    yajl_handle hYajl = NULL;
+    yajl_handle hYajl = yajl_alloc(NULL, NULL, NULL);
     yajl_free(hYajl);
 
     apr_initialize();
