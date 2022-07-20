@@ -8,8 +8,10 @@ PROJECT("json_encoder")
 INCLUDE_DIRECTORIES(include)
 INCLUDE_DIRECTORIES(external/yajl-2.1.1/include)
 INCLUDE_DIRECTORIES(external/yajl-2.1.1/include/yajl)
+INCLUDE_DIRECTORIES(external/apr/include/apr-1)
 
 LINK_DIRECTORIES(external/yajl-2.1.1/lib)
+LINK_DIRECTORIES(external/apr/lib)
 
 ADD_SUBDIRECTORY(src)
 ADD_SUBDIRECTORY(test/sample)
