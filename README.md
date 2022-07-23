@@ -5,7 +5,9 @@ This is a tool used to encode file in JSON format to TLV (Tag-Lengh-Value)
 The input will contain records in JSON format. Each record is separated by a new line (LF). The input will only contain simple types, complex and nested data structures will not be present (i.e. map and array).
 
 Input example:
+
 { “key1”:“value”, “key2”:42, “key3”:TRUE}
+
 {“sadsf”:”dsewtew”, “dsre”:3221, “sdfds”:”dsfewew”}
 
 Basically a record is a list of KVPs (key-value pairs).
