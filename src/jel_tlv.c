@@ -4,7 +4,9 @@
 * @brief The module contains TLV functions.
 *
 */
-#include "jel__tlv.h"
+#include <stdlib.h>
+#include <string.h>
+#include "jel_tlv.h"
 
 
 jel_result_t
@@ -47,7 +49,7 @@ jel_tlv_construct(
 
     size += length;
 
-    out = (jel_tlv_t *) calloc(size);
+    out = (jel_tlv_t *) calloc(size, sizeof(uint8_t));
     if (NULL == out)
     {
         return JEL_RESULT_SYS_CALL_FAIL;
@@ -58,7 +60,7 @@ jel_tlv_construct(
         memcpy((void *)(out + 1), data, length);
     }
 
-    out.header.tag = tag;
+    out->tag = tag;
     *tlv = out;
     return JEL_RESULT_OK;
 }
