@@ -1,5 +1,5 @@
-# JSON Encoder
-This is a tool used to encode file in JSON format to TLV (Tag-Lengh-Value)
+# JSON Encoding Library (JEL)
+Library used to encode file in JSON format to TLV (Tag-Lengh-Value)
 
 # Encode algorithm
 The input will contain records in JSON format. Each record is separated by a new line (LF). The input will only contain simple types, complex and nested data structures will not be present (i.e. map and array).
@@ -27,8 +27,10 @@ Types supported by JSON must be handled and preserved (i.e. integer, string, boo
 The input file can be arbitrary large, make sure to use streaming instead of reading everything into memory. You can assume that the key space (number of distinct key strings) is small and regular in-memory structures (i.e. hashtable) can be used for the dictionary.
 
 
-# Layout
-[TBD]
+# Further Improvements
+Add decoding support
+Add complex type support
+Add big/little endian support
 
 # Environment setup
 [TBD]
