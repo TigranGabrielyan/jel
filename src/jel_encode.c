@@ -4,6 +4,8 @@
 * @brief The module contains implementation of encoding functions of JEL.
 *
 */
+#include <stdlib.h>
+#include <string.h>
 #include "jel_encode.h"
 #include "jel_tlv.h"
 
@@ -271,7 +273,7 @@ uninit_apr_hashtable(
 
         for (hi = apr_hash_first(NULL, gCtx.ht); hi; hi = apr_hash_next(hi))
         {
-            apr_hash_this(hi, &key, NULL, &val);
+            apr_hash_this(hi, (const void **) &key, NULL, &val);
             free(key);
             free(val);
         }
@@ -296,7 +298,7 @@ send_hashtable_keys()
 
     for (hi = apr_hash_first(NULL, gCtx.ht); hi; hi = apr_hash_next(hi))
     {
-        apr_hash_this(hi, &key, &key_len, &val);
+        apr_hash_this(hi, (const void **) &key, &key_len, &val);
 
         gCtx.recent_key_id = *((uint32_t *) val);
         if (JEL_RESULT_OK != send_tlv(JEL_TLV_KEY, key_len, key))
