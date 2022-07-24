@@ -41,6 +41,10 @@ jel_tlv_construct(
         case JEL_TLV_ELEMENT_STRING:
         case JEL_TLV_KEY:
         {
+            if (0 == length || NULL == data)
+            {
+                return JEL_RESULT_INVALID_PARAM;
+            }
             size += sizeof(id);
             has_id = 1;
             break;

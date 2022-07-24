@@ -33,6 +33,7 @@ Add complex type support
 Enhance error logging by using messages from the helper libraries
 Add big/little endian support
 Add inplace TLV construction
+Add unit tests for other TLV tags (similar to what is done for JEL_TLV_ELEMENT_BOOL)
 
 # Environment setup
 [TBD]
