@@ -30,7 +30,9 @@ The input file can be arbitrary large, make sure to use streaming instead of rea
 # Further Improvements
 Add decoding support
 Add complex type support
+Enhance error logging by using messages from the helper libraries
 Add big/little endian support
+Add inplace TLV construction
 
 # Environment setup
 [TBD]
