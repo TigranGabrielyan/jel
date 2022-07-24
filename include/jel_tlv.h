@@ -23,6 +23,7 @@ typedef uint16_t jel_tag_t;
 #define JEL_TLV_ELEMENT_INTEGER    ((jel_tag_t) 4)
 #define JEL_TLV_ELEMENT_DOUBLE     ((jel_tag_t) 5)
 #define JEL_TLV_ELEMENT_STRING     ((jel_tag_t) 6)
+#define JEL_TLV_KEY                ((jel_tag_t) 7)
 
 #pragma pack(push, 1)
 typedef struct jel_tlv_s

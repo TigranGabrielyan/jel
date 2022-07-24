@@ -18,7 +18,9 @@ jel_tlv_construct(
     const void *    data)
 {
     jel_tlv_t * out = NULL;
-    uint32_t size = sizeof(jel_tlv_t);
+    uint32_t size = length;
+    uint8_t * data_ptr = NULL;
+    uint8_t has_id = 0;
 
     if (NULL == tlv)
     {
@@ -37,8 +39,10 @@ jel_tlv_construct(
         case JEL_TLV_ELEMENT_INTEGER:
         case JEL_TLV_ELEMENT_DOUBLE:
         case JEL_TLV_ELEMENT_STRING:
+        case JEL_TLV_KEY:
         {
             size += sizeof(id);
+            has_id = 1;
             break;
         }
         default:
@@ -47,20 +51,29 @@ jel_tlv_construct(
         }
     }
 
-    size += length;
-
-    out = (jel_tlv_t *) calloc(size, sizeof(uint8_t));
+    out = (jel_tlv_t *) calloc(size + sizeof(jel_tlv_t), sizeof(uint8_t));
     if (NULL == out)
     {
         return JEL_RESULT_SYS_CALL_FAIL;
     }
+    out->tag = tag;
+    out->length = size;
+
+
+    data_ptr = (uint8_t *) (out + 1);
+
+    if (1 == has_id)
+    {
+        ((jel_tlv_element_t *) out)->id = id;
+
+        data_ptr += sizeof(id);
+    }
 
     if (0 != length)
     {
-        memcpy((void *)(out + 1), data, length);
+        memcpy(data_ptr, data, length);
     }
 
-    out->tag = tag;
     *tlv = out;
     return JEL_RESULT_OK;
 }
