@@ -20,6 +20,7 @@ typedef uint32_t jel_result_t;
 #define JEL_RESULT_OK               ((jel_result_t) 0)
 #define JEL_RESULT_INVALID_PARAM    ((jel_result_t) 1)
 #define JEL_RESULT_SYS_CALL_FAIL    ((jel_result_t) 2)
+#define JEL_RESULT_INIT_FAIL        ((jel_result_t) 3)
 
 
 #ifdef __cplusplus

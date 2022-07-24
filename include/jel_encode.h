@@ -14,7 +14,12 @@
 extern "C" {
 #endif /* __cplusplus */
 
-typedef void (*jel_encode_callback_t)(uint32_t status, const void * data, uint32_t length, void * user_context);
+typedef uint32_t jel_encode_cb_status_t;
+/* Definitions of the encode callback statuses. */
+#define JEL_ENCODE_CB_STATUS_OK     ((jel_encode_cb_status_t) 0)
+#define JEL_ENCODE_CB_STATUS_ERROR  ((jel_encode_cb_status_t) 1)
+
+typedef void (*jel_encode_callback_t)(jel_encode_cb_status_t status, const void * data, uint32_t length, void * user_context);
 
 /*!
 *******************************************************************************
@@ -51,11 +56,8 @@ jel_encode_do(const void * data, uint32_t length);
 *******************************************************************************
 ** Finish encoding process.
 **
-** @return
-**      - RESULT_OK
-**      - RESULT_SYS_CALL_FAIL
 */
-jel_result_t
+void
 jel_encode_finish();
 
 #ifdef __cplusplus
