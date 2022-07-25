@@ -38,6 +38,7 @@ Following tools are required for successful build and execution of the JEL libra
 
  - GCC and G++.
  - CMake (version 3.18 or higher)
+ - GoogleTest
  - doxygen
 
 # External Dependencies
@@ -48,9 +49,13 @@ Used to work with hashtables and file IO.
 Used for parsing JSON files
 
 Both these libraries are precompiled and stored under `external` folder in the repository.
-# How To Build
 
+# How To Build
  - To build the library with all tests and samples `./build.sh` command should be executed. 
  - To generate doxygen documentation `./doc_gen.sh` should be executed.
  - To clean all temporary generated file `./clean.sh` should be executed.
 
+# How To Run
+After succesful build:
+ - `sample` console application will be available in `./build/test/sample` folder. It is expecting the input JSON entries to be provided in the `input` file next to it. And will generate the output in the `output` binary file.
+ - `jel_test` console application will be available in `./build/test/gtes` folder. It will execute JEL unit tests.
