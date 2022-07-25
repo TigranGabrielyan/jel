@@ -52,7 +52,7 @@ Both these libraries are precompiled and stored under `external` folder in the r
 
 # How To Build
  - To build the library with all tests and samples `./build.sh` command should be executed. 
- - To generate doxygen documentation `./doc_gen.sh` should be executed.
+ - To generate doxygen documentation `./doc_gen.sh` should be executed. Documentation will be generated in the `./docs` folder.
  - To clean all temporary generated file `./clean.sh` should be executed.
 
 # How To Run
